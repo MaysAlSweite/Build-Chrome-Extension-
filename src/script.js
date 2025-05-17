@@ -3,7 +3,9 @@ const saveInput = document.getElementById("saveInput");
 const saveTab = document.getElementById("saveTab");
 const LS_leads = JSON.parse(localStorage.getItem("myLeads"))
 const ul = document.getElementById("ul");
+const deleteBtn = document.getElementById("delete");
 let myLeads = []
+
 if (LS_leads) {
     myLeads = LS_leads
     render(myLeads)
@@ -40,3 +42,9 @@ function render(leads) {
     }
     ul.innerHTML = listItems
 }
+
+deleteBtn.addEventListener("click", function () {
+    localStorage.clear()
+    myLeads = []
+    render(myLeads)
+})
